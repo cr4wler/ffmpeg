@@ -20,19 +20,21 @@
 
 /**
  * @file
- * DNN inference functions interface for OpenVINO backend.
+ * DNN inference functions interface for native backend.
  */
 
+#ifndef AVFILTER_DNN_DNN_BACKEND_NATIVE_LAYER_AVGPOOL_H
+#define AVFILTER_DNN_DNN_BACKEND_NATIVE_LAYER_AVGPOOL_H
 
-#ifndef AVFILTER_DNN_DNN_BACKEND_OPENVINO_H
-#define AVFILTER_DNN_DNN_BACKEND_OPENVINO_H
+#include "dnn_backend_native.h"
 
-#include "../dnn_interface.h"
+typedef struct AvgPoolParams{
+    int32_t strides, kernel_size;
+    DNNPaddingParam padding_method;
+} AvgPoolParams;
 
-DNNModel *ff_dnn_load_model_ov(const char *model_filename, const char *options);
-
-DNNReturnType ff_dnn_execute_model_ov(const DNNModel *model, DNNData *outputs, uint32_t nb_output);
-
-void ff_dnn_free_model_ov(DNNModel **model);
+int dnn_load_layer_avg_pool(Layer *layer, AVIOContext *model_file_context, int file_size, int operands_num);
+int dnn_execute_layer_avg_pool(DnnOperand *operands, const int32_t *input_operand_indexes,
+                             int32_t output_operand_index, const void *parameters);
 
 #endif
