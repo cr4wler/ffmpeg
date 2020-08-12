@@ -124,6 +124,7 @@ extern AVOutputFormat ff_dnxhd_muxer;
 extern AVInputFormat  ff_dsf_demuxer;
 extern AVInputFormat  ff_dsicin_demuxer;
 extern AVInputFormat  ff_dss_demuxer;
+extern AVOutputFormat ff_dss_muxer;
 extern AVInputFormat  ff_dts_demuxer;
 extern AVOutputFormat ff_dts_muxer;
 extern AVInputFormat  ff_dtshd_demuxer;

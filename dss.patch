@@ -1,0 +1,48 @@
+diff --git a/libavcodec/Makefile b/libavcodec/Makefile
+index 1417aeef98..717354aacf 100644
+--- a/libavcodec/Makefile
++++ b/libavcodec/Makefile
+@@ -290,6 +290,7 @@ OBJS-$(CONFIG_DSD_MSBF_PLANAR_DECODER) += dsddec.o dsd.o
+ OBJS-$(CONFIG_DSICINAUDIO_DECODER)     += dsicinaudio.o
+ OBJS-$(CONFIG_DSICINVIDEO_DECODER)     += dsicinvideo.o
+ OBJS-$(CONFIG_DSS_SP_DECODER)          += dss_sp.o
++OBJS-$(CONFIG_DSS_SP_ENCODER)          += dss_sp_enc.o
+ OBJS-$(CONFIG_DST_DECODER)             += dstdec.o dsd.o
+ OBJS-$(CONFIG_DVBSUB_DECODER)          += dvbsubdec.o
+ OBJS-$(CONFIG_DVBSUB_ENCODER)          += dvbsub.o
+diff --git a/libavcodec/allcodecs.c b/libavcodec/allcodecs.c
+index 8d1b15ab85..f651331a37 100644
+--- a/libavcodec/allcodecs.c
++++ b/libavcodec/allcodecs.c
+@@ -425,6 +425,7 @@ extern AVCodec ff_dsd_lsbf_planar_decoder;
+ extern AVCodec ff_dsd_msbf_planar_decoder;
+ extern AVCodec ff_dsicinaudio_decoder;
+ extern AVCodec ff_dss_sp_decoder;
++extern AVCodec ff_dss_sp_encoder;
+ extern AVCodec ff_dst_decoder;
+ extern AVCodec ff_eac3_encoder;
+ extern AVCodec ff_eac3_decoder;
+diff --git a/libavformat/Makefile b/libavformat/Makefile
+index 62d8cbb54e..7d12981b5d 100644
+--- a/libavformat/Makefile
++++ b/libavformat/Makefile
+@@ -162,6 +162,7 @@ OBJS-$(CONFIG_DNXHD_MUXER)               += rawenc.o
+ OBJS-$(CONFIG_DSF_DEMUXER)               += dsfdec.o
+ OBJS-$(CONFIG_DSICIN_DEMUXER)            += dsicin.o
+ OBJS-$(CONFIG_DSS_DEMUXER)               += dss.o
++OBJS-$(CONFIG_DSS_MUXER)                 += dss_enc.o
+ OBJS-$(CONFIG_DTSHD_DEMUXER)             += dtshddec.o
+ OBJS-$(CONFIG_DTS_DEMUXER)               += dtsdec.o rawdec.o
+ OBJS-$(CONFIG_DTS_MUXER)                 += rawenc.o
+diff --git a/libavformat/allformats.c b/libavformat/allformats.c
+index fd9e46e233..ebafe45b46 100644
+--- a/libavformat/allformats.c
++++ b/libavformat/allformats.c
+@@ -124,6 +124,7 @@ extern AVOutputFormat ff_dnxhd_muxer;
+ extern AVInputFormat  ff_dsf_demuxer;
+ extern AVInputFormat  ff_dsicin_demuxer;
+ extern AVInputFormat  ff_dss_demuxer;
++extern AVOutputFormat ff_dss_muxer;
+ extern AVInputFormat  ff_dts_demuxer;
+ extern AVOutputFormat ff_dts_muxer;
+ extern AVInputFormat  ff_dtshd_demuxer;

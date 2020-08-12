@@ -425,6 +425,7 @@ extern AVCodec ff_dsd_lsbf_planar_decoder;
 extern AVCodec ff_dsd_msbf_planar_decoder;
 extern AVCodec ff_dsicinaudio_decoder;
 extern AVCodec ff_dss_sp_decoder;
+extern AVCodec ff_dss_sp_encoder;
 extern AVCodec ff_dst_decoder;
 extern AVCodec ff_eac3_encoder;
 extern AVCodec ff_eac3_decoder;
